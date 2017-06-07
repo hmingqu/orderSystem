@@ -16,7 +16,7 @@ public class DishsDaoImplTest {
 		dishsDao = (DishsDaoInft) context.getBean("dishsDao");
 		
 		Dishs dishs = new Dishs();
-		dishs.setName("caicai");
+		dishs.setName("jiji");
 		
 		dishsDao.add(dishs);
 	}

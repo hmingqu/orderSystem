@@ -18,13 +18,13 @@
             <column name="description" />
         </property>
         <property name="create" type="java.lang.String">
-            <column name="create" />
+            <column name="create_date" />
         </property>
         <property name="state" type="java.lang.String">
             <column name="state" />
         </property>
         <many-to-one name="dishsType" class="com.hmingqu.orderSystem.orderModel.DishsType" fetch="join">
-            <column name="id" />
+            <column name="dt_id" />
         </many-to-one>
     </class>
 </hibernate-mapping>

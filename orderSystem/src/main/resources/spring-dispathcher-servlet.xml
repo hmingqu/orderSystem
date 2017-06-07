@@ -8,19 +8,20 @@
      http://www.springframework.org/schema/mvc  
      http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<!-- 扫描注解 -->
-	<context:component-scan base-package="com.ittx.java1608.secure.controller">
+	<!-- 加载springMVC前端控制器文件，上下文扫描注解 -->
+	<context:component-scan base-package="com.hmingqu.orderSystem.controller">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-
+	
+	<!-- 使用MVC注解驱动 -->
 	<mvc:annotation-driven />
 
-	<!-- 静态资源不被springmvc过滤 -->
+	<!-- 设置不被springMVC过滤的资源——静态资源不被springmvc过滤 -->
 	<mvc:resources mapping="/static/css/**" location="/static/css/" />
 	<mvc:resources mapping="/static/js/**" location="/static/js/" />
 	<mvc:resources mapping="/static/images/**" location="/static/images/" />
 
-	<!-- ViewResolver 视图解析器 -->
+	<!-- 配置实例化ViewResolver 视图解析器 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />

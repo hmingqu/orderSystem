@@ -13,7 +13,7 @@
         </property>
         <set name="dishs" table="t_dishs">
             <key>
-                <column name="dId" />
+                <column name="dt_id" />
             </key>
             <one-to-many class="com.hmingqu.orderSystem.orderModel.Dishs"/>
         </set>
