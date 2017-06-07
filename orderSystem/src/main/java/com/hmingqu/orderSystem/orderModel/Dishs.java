@@ -1,20 +1,28 @@
 package com.hmingqu.orderSystem.orderModel;
 
-import java.sql.Date;
-
-import com.hmingqu.orderSystem.model.BaseEntity;
-
-public class Dishs extends BaseEntity {
+public class Dishs{
 	
+	private int dId;
 	private String name;
 	private double price;
 	private String description;
-	private Date create;
+	private String create;
 	private String state;
 	private DishsType dishsType;
 	
 	public Dishs(){
 		
+	}
+	
+	public Dishs(int dId, String name, double price, String description, String create, String state,
+			DishsType dishsType) {
+		this.dId = dId;
+		this.name = name;
+		this.price = price;
+		this.description = description;
+		this.create = create;
+		this.state = state;
+		this.dishsType = dishsType;
 	}
 
 	public String getName() {
@@ -41,11 +49,13 @@ public class Dishs extends BaseEntity {
 		this.description = description;
 	}
 
-	public Date getCreate() {
+	
+
+	public String getCreate() {
 		return create;
 	}
 
-	public void setCreate(Date create) {
+	public void setCreate(String create) {
 		this.create = create;
 	}
 
@@ -65,6 +75,19 @@ public class Dishs extends BaseEntity {
 		this.dishsType = dishsType;
 	}
 	
+	public int getdId() {
+		return dId;
+	}
+
+	public void setdId(int dId) {
+		this.dId = dId;
+	}
+
+	@Override
+	public String toString() {
+		return "Dishs [dId=" + dId + ", name=" + name + ", price=" + price + ", description=" + description
+				+ ", create=" + create + ", state=" + state + ", dishsType=" + dishsType + "]";
+	}
 	
 	
 }

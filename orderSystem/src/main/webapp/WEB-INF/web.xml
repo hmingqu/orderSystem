@@ -4,4 +4,24 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
   <display-name>Archetype Created Web Application</display-name>
+  <!--   使用过滤器统一请求、相应的编码 -->
+  <filter>
+    <filter-name>EcondingFilter</filter-name>
+    <filter-class>com.hmingqu.ManageSystem.view.filter.EcondingFilter</filter-class>
+  </filter>
+  
+	<!-- spring监听器 加载spring核心配置文件 默认是在: /WEB-INF/applicationContext.xml -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- 自已指定加载配置文件 spring-core.xml -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring-core.xml</param-value>
+	</context-param>
+	
+  <welcome-file-list>
+    <welcome-file>jsp/login.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

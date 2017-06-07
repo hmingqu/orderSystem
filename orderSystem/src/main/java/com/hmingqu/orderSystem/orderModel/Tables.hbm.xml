@@ -1,26 +1,27 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-6-6 16:23:47 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2017-6-7 9:25:29 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <joined-subclass name="com.hmingqu.orderSystem.orderModel.Tables" extends="com.hmingqu.orderSystem.model.BaseEntity" table="t_tables" lazy="false">
-        <key>
-            <column name="tId" />
-        </key>
+    <class name="com.hmingqu.orderSystem.orderModel.Tables" table="TABLES">
+        <id name="tId" type="int" access="field">
+            <column name="TID" />
+            <generator class="assigned" />
+        </id>
         <property name="name" type="java.lang.String">
-            <column name="name" />
-        </property>
-        <many-to-one name="tableType" class="com.hmingqu.orderSystem.orderModel.TableType" fetch="join">
-            <column name="id" />
-        </many-to-one>
-        <property name="state" type="java.lang.String">
-            <column name="state" />
+            <column name="NAME" />
         </property>
         <property name="type" type="java.lang.String">
-            <column name="type" />
+            <column name="TYPE" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" />
         </property>
         <property name="capacity" type="java.lang.String">
-            <column name="capacity" />
+            <column name="CAPACITY" />
         </property>
-    </joined-subclass>
+        <many-to-one name="tableType" class="com.hmingqu.orderSystem.orderModel.TableType" fetch="join">
+            <column name="TABLETYPE" />
+        </many-to-one>
+    </class>
 </hibernate-mapping>

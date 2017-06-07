@@ -1,14 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-6-6 16:23:47 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2017-6-7 9:25:29 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <joined-subclass name="com.hmingqu.orderSystem.orderModel.DishsType" extends="com.hmingqu.orderSystem.model.BaseEntity" table="t_dishsType" lazy="false">
-        <key>
+    <class name="com.hmingqu.orderSystem.orderModel.DishsType" table="t_dishstype">
+        <id name="id" type="int">
             <column name="id" />
-        </key>
+            <generator class="native" />
+        </id>
         <property name="name" type="java.lang.String">
             <column name="name" />
         </property>
-    </joined-subclass>
+        <set name="dishs" table="t_dishs">
+            <key>
+                <column name="dId" />
+            </key>
+            <one-to-many class="com.hmingqu.orderSystem.orderModel.Dishs"/>
+        </set>
+    </class>
 </hibernate-mapping>

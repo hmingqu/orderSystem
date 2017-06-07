@@ -1,8 +1,6 @@
 package com.hmingqu.orderSystem.cateringModel;
 
-import com.hmingqu.orderSystem.model.BaseEntity;
-
-public class UserEntity extends BaseEntity {
+public class UserEntity {
 	
 	private String name;
 	private String password;

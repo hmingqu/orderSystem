@@ -1,29 +1,30 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-6-6 16:23:47 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2017-6-7 9:25:29 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <joined-subclass name="com.hmingqu.orderSystem.orderModel.Dishs" extends="com.hmingqu.orderSystem.model.BaseEntity" table="t_dishs" lazy="false">
-        <key>
+    <class name="com.hmingqu.orderSystem.orderModel.Dishs" table="t_dishs">
+        <id name="dId" type="int">
             <column name="dId" />
-        </key>
+            <generator class="native" />
+        </id>
         <property name="name" type="java.lang.String">
             <column name="dName" />
         </property>
-        <many-to-one name="dishsType" class="com.hmingqu.orderSystem.orderModel.DishsType" fetch="join">
-            <column name="id" />
-        </many-to-one>
         <property name="price" type="double">
             <column name="price" />
         </property>
         <property name="description" type="java.lang.String">
             <column name="description" />
         </property>
-        <property name="create" type="java.sql.Date">
+        <property name="create" type="java.lang.String">
             <column name="create" />
         </property>
         <property name="state" type="java.lang.String">
             <column name="state" />
         </property>
-    </joined-subclass>
+        <many-to-one name="dishsType" class="com.hmingqu.orderSystem.orderModel.DishsType" fetch="join">
+            <column name="id" />
+        </many-to-one>
+    </class>
 </hibernate-mapping>

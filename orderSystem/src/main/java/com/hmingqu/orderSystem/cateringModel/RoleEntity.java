@@ -2,9 +2,7 @@ package com.hmingqu.orderSystem.cateringModel;
 
 import java.util.Set;
 
-import com.hmingqu.orderSystem.model.BaseEntity;
-
-public class RoleEntity extends BaseEntity {
+public class RoleEntity {
 	
 	private String name;
 	private String description;

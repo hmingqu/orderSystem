@@ -1,11 +1,14 @@
 package com.hmingqu.orderSystem.orderDao.impl;
 
+
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hmingqu.orderSystem.orderDao.inft.DishsTypeDaoInft;
 import com.hmingqu.orderSystem.orderModel.DishsType;
 import com.hmingqu.util.MyHibernateDaoSupport;
 
+@Transactional(readOnly=false)
 @Repository("dTypeDao")
 public class DishsTypeDaoImpl extends MyHibernateDaoSupport implements DishsTypeDaoInft {
 	

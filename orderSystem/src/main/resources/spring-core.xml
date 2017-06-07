@@ -10,8 +10,9 @@
             http://www.springframework.org/schema/aop
             http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/tx
-            http://www.springframework.org/schema/tx/spring-tx.xsd">
-            
+           	http://www.springframework.org/schema/tx/spring-tx.xsd">
+    
+    <context:component-scan base-package="com.hmingqu.orderSystem.orderDao.impl"></context:component-scan>        
     <!-- 读取jdbc.properties属性信息 -->
 	
 	<context:property-placeholder location = "classpath:jdbc.properties"/>
@@ -25,7 +26,7 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 	
-<!-- 	加载使用hibernate -->
+	<!-- 加载使用hibernate -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource">
@@ -34,16 +35,14 @@
 
 		<property name="mappingResources">
 			<list>
-				<value>com/hmingqu/orderSystem/orderModel/Dishs.hbm.xml</value>
 				<value>com/hmingqu/orderSystem/orderModel/DishsType.hbm.xml</value>
-				<value>com/hmingqu/orderSystem/orderModel/Tables.hbm.xmll</value>
-				<value>com/hmingqu/orderSystem/orderModel/TableType.hbm.xml</value>
+				<value>com/hmingqu/orderSystem/orderModel/Dishs.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<!-- <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop> -->
 			</props>
@@ -51,32 +50,14 @@
 	</bean>
 	
 	<!-- 实例化事务管理器 -->
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-
-	<!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
-
-	<!-- 声明式事务管理AspectJ xml配置实现 -->
-	<tx:advice id="trasactionAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<!-- <tx:method name="delete*" propagation="REQUIRED" />
-			<tx:method name="update*" propagation="REQUIRED" />
-			<tx:method name="add*" propagation="REQUIRED" />
-			<tx:method name="get*" read-only="true" />  -->
-			<tx:method name="*" propagation="REQUIRED" />
-		</tx:attributes>
-	</tx:advice>
-
-	<aop:config>
-		<aop:pointcut
-			expression="execution(* com.ittx.java1608.secure.service.impl.*.*(..))"
-			id="mypointcut" />
-		<aop:advisor advice-ref="trasactionAdvice" pointcut-ref="mypointcut" />
-	</aop:config>
+	
+	<!-- hibernate 使用注解是加载事务注解驱动 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 </beans>	
 	

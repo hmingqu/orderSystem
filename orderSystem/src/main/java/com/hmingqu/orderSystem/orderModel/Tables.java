@@ -1,8 +1,8 @@
 package com.hmingqu.orderSystem.orderModel;
-import com.hmingqu.orderSystem.model.BaseEntity;
 
-public class Tables extends BaseEntity {
+public class Tables {
 	
+	private int tId;
 	private String name;
 	private String type;
 	private String state;
@@ -52,6 +52,13 @@ public class Tables extends BaseEntity {
 	public void setTableType(TableType tableType) {
 		this.tableType = tableType;
 	}
-	
-	
+
+	public int gettId() {
+		return tId;
+	}
+
+	public void settId(int tId) {
+		this.tId = tId;
+	}
+
 }
